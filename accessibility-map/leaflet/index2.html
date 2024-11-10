@@ -24,7 +24,7 @@
 
   <script>
     // Step 2: Initialize the map
-    var map = L.map('map').setView([51.505, -0.09], 13);  // Set initial map center and zoom level
+    var map = L.map('map').setView([53, -127], 13);  // Set initial map center and zoom level
 
     // Step 3: Add a tile layer to the map (OpenStreetMap tiles)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -33,9 +33,15 @@
     }).addTo(map);
 
     // Step 4: Add a marker to the map
-    var marker = L.marker([51.5, -0.09]).addTo(map);
+    var marker = L.marker([49.2827, -123.12]).addTo(map);
     marker.bindPopup("<b>Accesible stuff!</b><br>This is a marker.").openPopup();
-  </script>
 
-</body>
-</html>
+    var Stadia_OSMBright = L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.{ext}', {
+	minZoom: 0,
+	maxZoom: 20,
+	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	ext: 'png'
+    });
+
+    Stadia_OSMBright.addTo(map)
+</script>
