@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './App.css';
-import { db } from "../firebaseConfig"; // Make sure the path matches your file structure
+import { db } from "./firebaseConfig"; // Make sure the path matches your file structure
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 function addReview(userName, typeRating, reviewText) {

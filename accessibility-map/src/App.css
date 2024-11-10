@@ -35,7 +35,7 @@
 
 /*setting wallpaper background*/
 body {
-  background-image: url('/Users/owenwilsontedja/Documents/hackcampproject/src/components/hackcamp.jpg');
+  background-image: url('./components/hackcamp.jpg');
   background-size: 100%;       /* make sures whole image is visible and not too zoomed in*/
   background-repeat: no-repeat; /* Prevents repeating the image */
   background-position: center;  /* Centers the image on the page */
