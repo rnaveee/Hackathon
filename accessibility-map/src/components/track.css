@@ -1,0 +1,33 @@
+/* src/components/Track.css */
+.track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  margin: 8px 0;
+  border-radius: 8px;
+  background-color: rgb(28, 28, 28); /* Adjust background color as desired */
+  color: rgb(250, 244, 244); /* Your chosen color for text */
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.track:hover {
+  background-color: rgb(50, 50, 50); /* Slightly lighter on hover for effect */
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-details {
+  font-size: 14px;
+  color: rgb(200, 200, 200); /* Slightly muted color for artist and album */
+}
+
+.track-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(250, 244, 244); /* Brighter for the track title */
+}

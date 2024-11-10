@@ -1,0 +1,77 @@
+/* src/components/SearchResults.css */
+.search-results {
+  text-align: left;         /* Aligns text to the left */
+  margin-left: 10px;        /* Moves the container to the left */
+  padding-left: 10px;       /* Optional padding for spacing */
+}
+
+/* Customizing the button */
+.searchresultbutton {
+background-color: #fefdff;
+border: none;
+color: rgb(20, 19, 19);
+padding: 20px 32px;
+text-align: center;
+text-decoration: none;
+font-size: 12px;
+border-radius:12px;        /* Rounded button */
+transition: all 0.5s;      /* Smooth transition */
+cursor: pointer;
+}
+
+/* Additional Button Hover Effects */
+.searchresultbutton span {
+display: inline-block;
+position: relative;
+transition: 0.5s;          /* Smooth transition on hover */
+}
+
+.searchresultbutton span:after {
+content: '\00bb';          /* Adds >> symbol */
+position: absolute;
+opacity: 0;
+top: 0;
+right: -20px;
+transition: 0.5s;
+}
+
+.searchresultbutton:hover span {
+padding-right: 25px;       /* Space for >> symbol on hover */
+}
+
+.searchresultbutton:hover span:after {
+opacity: 1;                /* Show >> symbol */
+right: 0;
+}
+
+/* Style the container for each track */
+.track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Place button on the right */
+  padding: 10px 0;
+  border-bottom: 1px solid #444;
+}
+
+/* Style for the track information */
+.track-info {
+  flex-grow: 1; /* Take up remaining space for track details */
+}
+
+/* Style for the + button */
+.add-button {
+  background-color: transparent;
+  color: #f0f9f3; /* Spotify green */
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.add-button:hover {
+  transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+.add-button:focus {
+  outline: none;
+}
