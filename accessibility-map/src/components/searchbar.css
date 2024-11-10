@@ -1,0 +1,13 @@
+/* src/components/SearchBar.css */
+input[type="text"] {
+    width: 20%;
+    padding: 20px 28px;
+    margin: 12px 0;
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+  input[type="text"]:focus {
+    background-color: rgb(253, 255, 223);
+  }
+  
