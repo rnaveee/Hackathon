@@ -1,8 +1,42 @@
-
-.Title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: red;
+/* src/App.css */
+.App {
+  text-align: center;
 }
 
+.app-content {
+  display: flex;             /* Flex container */
+  justify-content: space-between; /* Align children to the left */
+  gap: 20px;
+               
+}
+
+.search-results {
+  text-align: left;           /* Aligns text to the left */
+  width: 200px;               /* Set a width as needed */
+}
+.your-playlist {
+  text-align: right;        
+  width: 200px;
+  padding-right: 20px;      
+}
+/* Spotify-like style for main heading (e.g., "Jammming") */
+.main-heading {
+  font-size: 2.5rem;              /* Large, bold size */
+  font-weight: 700;               /* Bold for prominence */
+  color: rgb(250, 244, 244);      /* Bright, almost white color */
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;      /* Adds a modern look */
+  letter-spacing: 1px;            /* Subtle spacing for a clean effect */
+}
+
+
+
+/*setting wallpaper background*/
+body {
+  background-image: url('./components/hackcamp.jpg');
+  background-size: 100%;       /* make sures whole image is visible and not too zoomed in*/
+  background-repeat: no-repeat; /* Prevents repeating the image */
+  background-position: center;  /* Centers the image on the page */
+}
