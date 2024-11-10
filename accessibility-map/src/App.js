@@ -1,5 +1,4 @@
 
-import './App.css';
 
 const Header = () => {
   return (
@@ -9,6 +8,7 @@ const Header = () => {
   )
 }
 
+
 function App() {
   return (
     <div className="App">
@@ -16,5 +16,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
