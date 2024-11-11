@@ -1,31 +1,27 @@
 import React, { useState } from 'react';
 import './playlist.css';
 import './track.css'
+import { collection, getDocs, addDoc, Timestamp } from "firebase/firestore";
+import { db } from "../firebaseConfig";
+import { addReview } from "../reviewConfig";
+
 
 function Playlist({ playlistTracks }) {
   const [trackList, setTrackList] = useState(playlistTracks); // Store the track list including new reviews
   const [newReviewInput, setNewReviewInput] = useState(''); // For user input in the new review input box
 
 
-
   const handleNewReviewInputChange = (event) => {
     setNewReviewInput(event.target.value); // Update the input box as user types
   };
 
-  const addReview = () => {
-    const [accessibility, category, review] = newReviewInput.split(',').map(item => item.trim());
-
-    if (accessibility && category && review) {
-      const newReview = { accessibility, category, review };
-      const updatedTracks = [...trackList, newReview];
-
-      // Update track list with new review and reset input field
-      setTrackList(updatedTracks);
-      setNewReviewInput('');
-    } else {
-      alert('Please enter details in the format: accessibility, category, review');
-    }
+  const addReviewHandler = () => {
+    //addreview function
   };
+
+  async function getLatestReview(zipCode){
+    
+  }
 
   return (
     <div>
@@ -63,8 +59,9 @@ function Playlist({ playlistTracks }) {
         className="playlist-name-input"
       />
       </div>
-      <button onClick={addReview} className="searchresultbutton">
+      <button onClick={addReviewHandler} className="searchresultbutton">
         Create Review
+        
       </button>
       
 
