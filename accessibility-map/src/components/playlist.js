@@ -3,7 +3,7 @@ import './playlist.css';
 import './track.css'
 import { collection, getDocs, addDoc, Timestamp } from "firebase/firestore";
 import { db } from "../firebaseConfig";
-import { addReview } from "../reviewConfig";
+import { addReview, getLatestReview } from "../reviewConfig";
 
 
 function Playlist({ playlistTracks }) {
@@ -15,13 +15,13 @@ function Playlist({ playlistTracks }) {
     setNewReviewInput(event.target.value); // Update the input box as user types
   };
 
-  const addReviewHandler = () => {
-    //addreview function
+  const testlatest = () => {
+    getLatestReview('rainier').then(r => console.log(r))
   };
 
-  async function getLatestReview(zipCode){
-    
-  }
+
+
+  
 
   return (
     <div>
@@ -59,7 +59,7 @@ function Playlist({ playlistTracks }) {
         className="playlist-name-input"
       />
       </div>
-      <button onClick={addReviewHandler} className="searchresultbutton">
+      <button onClick={testlatest} className="searchresultbutton">
         Create Review
         
       </button>
