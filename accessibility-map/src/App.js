@@ -4,6 +4,9 @@ import SearchResults from './components/searchresult';
 import Playlist from './components/playlist';
 import React, { useState } from 'react';
 import LeafletMap from './components/leafletmap';
+import { collection, getDocs, addDoc, Timestamp } from "firebase/firestore";
+import { db } from "./firebaseConfig";
+
 function App() {
   const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
@@ -53,6 +56,22 @@ function App() {
       </div>
     </div>
   );
+}
+
+function addReview(userName, typeRating, reviewText, starRating) {
+  try {
+    const docRef = addDoc(collection(db, "reviews"), {
+      userName: userName,
+      typeRating: typeRating,
+      reviewText: reviewText,
+      starRating: starRating,
+      timestamp: Timestamp.now()
+    });
+    console.log("added review: ", docRef.id)
+  }
+  catch (error) {
+    console.error("error", error)
+  }
 }
 
 export default App;

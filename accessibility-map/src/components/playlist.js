@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './playlist.css';
-import './track.css';
+import './track.css'
+import { collection, getDocs, addDoc, Timestamp } from "firebase/firestore";
+import { db } from "../firebaseConfig";
+import { addReview, getLatestReview } from "../reviewConfig";
 
 function Playlist({ playlistTracks }) {
   const [trackList, setTrackList] = useState(playlistTracks); // Store the track list including new reviews
@@ -28,6 +31,14 @@ function Playlist({ playlistTracks }) {
       alert('Please fill in all fields to add a review.');
     }
   };
+  const handleNewReviewInputChange = (event) => {
+    setNewReviewInput(event.target.value); // Update the input box as user types
+  };
+
+  const testlatest = () => {
+    getLatestReview('rainier').then(r => console.log(r))
+  };
+
 
   return (
     <div>
@@ -54,7 +65,6 @@ function Playlist({ playlistTracks }) {
           </div>
         ))}
       </div>
-
       {/* Input fields for adding a new review */}
       <div className="review-inputs">
         <input
@@ -85,6 +95,7 @@ function Playlist({ playlistTracks }) {
           <option value="Available">Available</option>
           <option value="Not Available">Not Available</option>
         </select>
+
 
         <select value={rating} onChange={(e) => setRating(e.target.value)} className="input-field">
           <option value="">Select Rating</option>
