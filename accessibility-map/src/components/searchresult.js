@@ -5,7 +5,7 @@ import './searchresult.css';
 function SearchResults({ tracks, onAddTrack }) {
   return (
     <div className="search-results">
-      <h2>Search Results</h2>
+      
       <div className="track-list">
         {tracks.map(track => (
           <div key={track.id} className="track">

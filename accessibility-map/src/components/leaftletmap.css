@@ -1,15 +1,6 @@
 /* Ensure map container takes up space in React */
 .map-container {
-    width: 80%;
-    max-width: 200px;
-    height: 500px;
-    margin: 0 auto;
-    border: 2px solid #282828; /* Optional border */
-    border-radius: 10px;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 0px;
     
   }
 
