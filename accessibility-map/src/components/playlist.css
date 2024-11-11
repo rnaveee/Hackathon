@@ -66,3 +66,31 @@
   text-decoration: underline;
 }
 
+.review-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between input fields */
+  max-width: 400px;
+  margin: 20px auto; /* Center the column */
+}
+
+.input-field {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.searchresultbutton {
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.searchresultbutton:hover {
+  background-color: #0056b3;
+}

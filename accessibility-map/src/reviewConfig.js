@@ -3,15 +3,26 @@ import './App.css';
 import { db } from "./firebaseConfig"; // Make sure the path matches your file structure
 import { collection, addDoc, Timestamp, query, where, getDocs } from "firebase/firestore";
 
-export function addReview(zipCode, address, typeRating, reviewText, starRating, category) {
+export async function addReview({zipcode, address, accessibility, category, rating, textReview}) {
   try {
-    const docRef = addDoc(collection(db, "reviews"), {
-      zipCode: zipCode,
+    console.log({
+      zipcode: zipcode,
       address: address,
-      typeRating: typeRating,
-      reviewText: reviewText,
-      starRating: starRating,
+      accessibility: accessibility,
       category: category,
+      rating: rating,
+      textReview: textReview,
+      timestamp: Timestamp.now()
+    });
+    
+    console.log("iueahfou")
+    const docRef = await addDoc(collection(db, "reviews"), {
+      zipcode: zipcode,
+      address: address,
+      accessibility: accessibility,
+      category: category,
+      rating: rating,
+      textReview: textReview,
       timestamp: Timestamp.now()
     });
     console.log("added review: ", docRef.id)

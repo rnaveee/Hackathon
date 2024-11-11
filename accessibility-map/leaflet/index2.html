@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leaflet Map Example</title>
+  
   <!-- Include Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
@@ -24,7 +25,7 @@
 
   <script>
     // Step 2: Initialize the map
-    var map = L.map('map').setView([53, -127], 13);  // Set initial map center and zoom level
+    var map = L.map('map').setView([49.26, -123.05], 13);  // Set initial map center and zoom level
 
     // Step 3: Add a tile layer to the map (OpenStreetMap tiles)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -32,17 +33,136 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    // Step 4: Add a marker to the map
-    var marker = L.marker([49.2827, -123.12]).addTo(map);
-    marker.bindPopup("<b>Accesible stuff!</b><br>This is a marker.").openPopup();
+    // Step 4: Add marker to the map
+    var markers = [
+      {
+        lat: 49.2800585,
+        lng: -123.1156075,
+        popupContent: "<b>Vancouver Public Library (V6B 6B1)</b><br>Rating: 5/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator<br>Public bathroom<br>Escalator"
+      },
+      {
+        lat: 49.261255,
+        lng: -123.118448,
+        popupContent: "<b>Vancouver General Hospital (V5Z 1M9)</b><br>Rating: 4/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Public bathroom"
+      },
+      {
+        lat: 49.279522, 
+        lng: -123.115245,
+        popupContent: "<b>BC Place Stadium (V6B 4Y8)</b><br>Rating: 4/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator<br>Public bathroom"
+      },
+      // 20 more markers added
+      {
+        lat: 49.2827,
+        lng: -123.1207,
+        popupContent: "<b>Science World (V6A 4C2)</b><br>Rating: 4/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator"
+      },
+      {
+        lat: 49.2828,
+        lng: -123.1165,
+        popupContent: "<b>Vancouver Aquarium (V6G 3E2)</b><br>Rating: 5/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator<br>Public bathroom"
+      },
+      {
+        lat: 49.2901,
+        lng: -123.1343,
+        popupContent: "<b>Stanley Park (V6G 1Z4)</b><br>Rating: 5/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator<br>Public bathroom"
+      },
+      {
+        lat: 49.2700,
+        lng: -123.1384,
+        popupContent: "<b>Granville Island (V6H 3S3)</b><br>Rating: 5/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator"
+      },
+      {
+        lat: 49.2328,
+        lng: -123.1137,
+        popupContent: "<b>UBC Botanical Garden (V6T 1Z4)</b><br>Rating: 4/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator"
+      },
+      {
+        lat: 49.2609,
+        lng: -123.2429,
+        popupContent: "<b>Queen Elizabeth Park (V5Y 1B7)</b><br>Rating: 4/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp"
+      },
+      {
+        lat: 49.2761,
+        lng: -123.1241,
+        popupContent: "<b>Vancouver Art Gallery (V6B 3R1)</b><br>Rating: 4/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator"
+      },
+      {
+        lat: 49.2873,
+        lng: -123.1225,
+        popupContent: "<b>Vancouver Opera (V6B 4Z8)</b><br>Rating: 5/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator"
+      },
+      {
+        lat: 49.2633,
+        lng: -123.0712,
+        popupContent: "<b>Vancouver Maritime Museum (V6G 3E2)</b><br>Rating: 4/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp"
+      },
+      {
+        lat: 49.2706,
+        lng: -123.1297,
+        popupContent: "<b>Vancouver Convention Centre (V6C 3T4)</b><br>Rating: 5/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator"
+      },
+      {
+        lat: 49.2638,
+        lng: -123.1513,
+        popupContent: "<b>Waterfront Station (V6B 1B6)</b><br>Rating: 4/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator"
+      },
+      {
+        lat: 49.2780,
+        lng: -123.1225,
+        popupContent: "<b>Pacific Centre Mall (V6B 1A1)</b><br>Rating: 4/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator"
+      },
+      {
+        lat: 49.2580,
+        lng: -123.0773,
+        popupContent: "<b>Capilano Suspension Bridge (V7R 4J1)</b><br>Rating: 4/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp"
+      },
+      {
+        lat: 49.2881,
+        lng: -123.1119,
+        popupContent: "<b>Vancouver Museum (V6G 1Z4)</b><br>Rating: 5/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator"
+      },
+      {
+        lat: 49.2765,
+        lng: -123.1392,
+        popupContent: "<b>Science World (V6A 4C2)</b><br>Rating: 5/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Elevator"
+      },
+      {
+        lat: 49.2829,
+        lng: -123.1010,
+        popupContent: "<b>Granville Bridge (V6P 1J4)</b><br>Rating: 5/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp"
+      },
+      {
+        lat: 49.2895,
+        lng: -123.1265,
+        popupContent: "<b>Vancouver Lookout (V6C 3B7)</b><br>Rating: 4/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp"
+      },
+      {
+        lat: 49.2586,
+        lng: -123.1563,
+        popupContent: "<b>Vancouver Playhouse Theatre (V6B 1E5)</b><br>Rating: 4/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp"
+      },
+      {
+        lat: 49.2855,
+        lng: -123.1331,
+        popupContent: "<b>Vancouver Museum (V6B 1C7)</b><br>Rating: 4/5.<br><i>Accessibility Features:</i><br>Wheelchair Ramp<br>Public bathroom"
+      }
+    ];
 
-
-    var Stadia_OSMBright = L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.{ext}', {
-	minZoom: 0,
-	maxZoom: 20,
-	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	ext: 'png'
+    // Loop through the markers array and add each marker to the map
+    markers.forEach(function(markerData) {
+      var marker = L.marker([markerData.lat, markerData.lng]).addTo(map);
+      marker.bindPopup(markerData.popupContent);
     });
 
-    Stadia_OSMBright.addTo(map)
-</script>
+    //Custom layer
+    var Stadia_OSMBright = L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.{ext}', {
+      minZoom: 0,
+      maxZoom: 20,
+      attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      ext: 'png'
+    });
+
+    Stadia_OSMBright.addTo(map);
+  </script>
+</body>
+</html>
