@@ -28,7 +28,7 @@ function App() {
 
   
 
-  const [searchResults] = useState([
+  const [searchResults, setSearchResults] = useState([
     { id: 1, accessibility: "wheel chair ramp", category: "available", review: "5/5" },
     { id: 2, accessibility: "quite area", category: "not available", review : "0/5" },
     { id: 3, accessibility: "public bathroom", category: "available", review: "3/5" },
